@@ -1,6 +1,6 @@
 # Learning Path (Scala 3)
 
-This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, job‑ready fluency.
+This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, job‑ready fluency and doubles as a learner‑friendly narrative.
 
 ## Milestone 1: Core syntax and expressions
 - val/var, blocks as expressions, top‑level definitions
@@ -40,3 +40,4 @@ This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, 
 
 ## Constraints
 - No starter files; begin from scratch with small, self‑contained snippets.
+- Prefer indentation‑style Scala in examples, unless a team style guide says otherwise.

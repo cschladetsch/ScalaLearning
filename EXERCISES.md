@@ -1,6 +1,16 @@
 # Exercises
 
-Short tasks designed to map to C/C++/C# experience while practicing idiomatic Scala.
+Short tasks designed to map to C/C++/C# experience while practicing idiomatic Scala. Failed attempts are preserved with brief commentary to make the learning path transparent.
+
+## Container + idiom notes (quick reference)
+- `List`: immutable, singly‑linked; fast prepend (`x :: list`), slow random access.
+- `Vector`: immutable, indexed, good general‑purpose default when you need random access.
+- `Array`: fixed size, mutable elements, contiguous storage.
+- `ArrayBuffer`: growable, mutable, contiguous storage (like `std::vector`).
+- `Set`: used for membership tests; immutable by default; `mutable.Set` exists.
+- `Option`: `Some`/`None` instead of null; use `map/flatMap` for flow.
+- `for ... yield`: expression that builds a new collection (desugars to `map/flatMap`).
+- `for` without `yield`: side‑effect loop (desugars to `foreach`).
 
 ## Core syntax
 - Write a function `clamp(x, lo, hi)` using expression‑style Scala.
@@ -33,6 +43,10 @@ object Exercise1 {
 - `var` is rarely needed here; prefer `val` for functions.
 - Your `max` function returns the smaller value; it should return the larger one.
 - `min(max(hi, lo), x)` is not a correct clamp; proper clamp is `max(lo, min(x, hi))`.
+
+### Idiom notes
+- Scala uses expression‑style `if/else`; no ternary operator.
+- Favor `val` and pure expressions unless mutation is required.
 
 ### Revised solution (correct)
 ```scala
@@ -71,6 +85,10 @@ def swapi[T]((a: T,b : T)): (T,T) =>
 - Use `=` not `=>` for method definitions.
 - Tuple parameter syntax is `def swap[T](t: (T, T)) = ...` or pattern matching in the parameter list.
 - This version only handles `(T, T)`; the task asks for generic `(A, B)` → `(B, A)`.
+
+### Idiom notes
+- Tuple accessors `_1`/`_2` are fine for small, obvious transforms.
+- Generic tuples are commonly `(A, B)`; don’t assume same‑type pairs.
 
 ### Most idiomatic (no match)
 ```scala
@@ -118,6 +136,10 @@ def dupe2[T](a : List[T]): List[T] =
 - `map` should be pure; using it only for side effects is not idiomatic.
 - `ArrayBuffer` needs an import and initialization, and you must convert back to `List`.
 
+### Idiom notes
+- Use `for ... yield` or `flatMap` to build new collections, not side‑effect mutation.
+- If you need mutation for performance, use a buffer (`ListBuffer`/`ArrayBuffer`) then convert.
+
 ### Most idiomatic (for‑comprehension)
 ```scala
 def dupe[T](a: List[T]): List[T] =
@@ -145,6 +167,10 @@ def dupe3[T](list : List[T]): List[T] =
 - `return for (...) yield ...` returns the *yielded collection*, not your `result`.
 - The yielded collection here would be `List[Unit]` because the body is side effects.
 - Avoid `return` in Scala; use the expression directly.
+
+### Idiom notes
+- `return` is rarely used; the last expression is the result.
+- `yield` produces values; side effects there lead to `Unit`.
 
 ### Final answer
 ```scala
