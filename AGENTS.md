@@ -26,6 +26,16 @@ This repo is for learning Scala as an experienced C/C++/C# developer. Guidance s
 - Preserve failed attempts and add short, clear commentary (teaches debugging and idioms).
 - Call out Scala 3 indentation requirements (`then`/`do`) when they cause confusion.
 
+```mermaid
+flowchart TD
+  Q[User question] --> A[Short, precise answer]
+  A --> B{Needs example?}
+  B -->|Yes| C[Minimal Scala 3 snippet]
+  B -->|No| D[Direct guidance]
+  C --> E[Point to LEARNING_PATH/EXERCISES]
+  D --> E
+```
+
 ## Files to use
 - `LEARNING_PATH.md`: structured roadmap and milestones.
 - `EXERCISES.md`: practice problems and mini‑projects.

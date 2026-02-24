@@ -10,3 +10,10 @@ Curated, stable references for Scala 3 and JVM tooling.
 - JVM interop notes (nullable, exceptions, collections)
 
 If you want links added later, share your team’s preferred sources once you start. Until then, keep this list as a placeholder to avoid premature tool bias.
+
+```mermaid
+flowchart LR
+  A[Team preferred sources] --> B[Curate links]
+  B --> C[Update RESOURCES.md]
+  C --> D[Use in exercises]
+```

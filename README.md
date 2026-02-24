@@ -8,6 +8,14 @@ This is a minimal, focused learning workspace for Scala 3, aimed at an experienc
 - `EXERCISES.md`: short drills and mini‑projects.
 - `RESOURCES.md`: curated references to fill in later.
 
+```mermaid
+flowchart LR
+  A[README] --> B[AGENTS]
+  A --> C[LEARNING_PATH]
+  A --> D[EXERCISES]
+  A --> E[RESOURCES]
+```
+
 ## How to use
 - Follow the milestones in `LEARNING_PATH.md`.
 - Do the code‑reading drills first, then hands‑on exercises.

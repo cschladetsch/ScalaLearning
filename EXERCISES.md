@@ -13,6 +13,20 @@ Short tasks designed to map to C/C++/C# experience while practicing idiomatic Sc
 - `for` without `yield`: side‑effect loop (desugars to `foreach`).
 - Scala 3 indentation gotchas: use `then` for `if` and `do` for `for` without `yield`.
 
+```mermaid
+flowchart TB
+  A[List<br/>immutable, linked] -->|prepend O(1)| A
+  B[Vector<br/>immutable, indexed] -->|random access| B
+  C[Array<br/>mutable, fixed size] -->|contiguous| C
+  D[ArrayBuffer<br/>mutable, growable] -->|contiguous + resize| D
+```
+
+```mermaid
+flowchart LR
+  F[for ... yield] --> M[map/flatMap]
+  N[for ... do] --> E[foreach]
+```
+
 ## Scala syntax reality check
 - Scala 3 supports both braces and significant indentation; we chose indentation for consistency.
 - Indentation style requires explicit `then` (for `if`) and `do` (for `for` without `yield`) to avoid parsing ambiguity.

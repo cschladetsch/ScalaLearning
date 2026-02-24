@@ -31,6 +31,15 @@ This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, 
 - sbt basics and common layout
 - testing basics (e.g., ScalaTest or MUnit)
 
+```mermaid
+flowchart LR
+  M1[Milestone 1<br/>Syntax] --> M2[Milestone 2<br/>Types & Collections]
+  M2 --> M3[Milestone 3<br/>Functional Patterns]
+  M3 --> M4[Milestone 4<br/>OO Scala]
+  M4 --> M5[Milestone 5<br/>Concurrency & Interop]
+  M5 --> M6[Milestone 6<br/>Project Structure]
+```
+
 ## Suggested progression (job starts next week)
 1) Prioritize Milestones 1–3 this week, focusing on reading and understanding existing code.
 2) Plan for up to ~2 hours per night; split time between reading and short exercises.
