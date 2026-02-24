@@ -13,3 +13,4 @@ This is a minimal, focused learning workspace for Scala 3, aimed at an experienc
 - Do the code‑reading drills first, then hands‑on exercises.
 - Keep examples small and self‑contained.
 - Preserve failed attempts; short commentary is part of the learning.
+- Expect Scala 3 indentation rules (`then`/`do`) when avoiding braces.

@@ -11,6 +11,13 @@ Short tasks designed to map to C/C++/C# experience while practicing idiomatic Sc
 - `Option`: `Some`/`None` instead of null; use `map/flatMap` for flow.
 - `for ... yield`: expression that builds a new collection (desugars to `map/flatMap`).
 - `for` without `yield`: side‑effect loop (desugars to `foreach`).
+- Scala 3 indentation gotchas: use `then` for `if` and `do` for `for` without `yield`.
+
+## Scala syntax reality check
+- Scala 3 supports both braces and significant indentation; we chose indentation for consistency.
+- Indentation style requires explicit `then` (for `if`) and `do` (for `for` without `yield`) to avoid parsing ambiguity.
+- `for ... yield` is an expression that *returns* a collection; `for` without `yield` is side‑effects only.
+- If the syntax feels verbose, that’s normal; favor readability over cleverness.
 
 ## Core syntax
 - Write a function `clamp(x, lo, hi)` using expression‑style Scala.
@@ -204,7 +211,86 @@ Example: `Seq(3,1,3,2,1)` → `Seq(3,1,2)`.
 - Keep it expression‑style; avoid `var` if you can.
 
 ### Your solution
-- TODO
+- Submitted:
+```scala
+def distinctPreserveOrder(xs: Seq[Int]): Seq[Int]) =
+    var seen : Set[Int]()
+    var result : ArrayBuffer()
+    for (x <- xs)
+        if (seen.contains(x))
+            continue
+        seen.insert(x)
+        result.add(x)
+    result
+```
+
+### Feedback
+- Extra `)` in the method signature.
+- `Set[Int]()` and `ArrayBuffer()` need types and imports; also choose mutable versions if you want to update them.
+- Scala has no `continue`; use guards or `if` around the body.
+- `insert`/`add` are not `Set`/`ArrayBuffer` methods in Scala; use `+=`.
+- Prefer expression‑style; avoid uninitialized `var`.
+
+### Most idiomatic (expression‑style, no mutation)
+```scala
+def distinctPreserveOrder(xs: Seq[Int]): Seq[Int] =
+  xs.foldLeft((Set.empty[Int], Vector.empty[Int])) { case ((seen, acc), x) =>
+    if seen.contains(x) then (seen, acc)
+    else (seen + x, acc :+ x)
+  }._2
+```
+
+### Efficient mutable version
+```scala
+import scala.collection.mutable
+
+def distinctPreserveOrder(xs: Seq[Int]): Seq[Int] =
+  val seen = mutable.HashSet[Int]()
+  val out = mutable.ArrayBuffer[Int]()
+  for x <- xs do
+    if !seen.contains(x) then
+      seen += x
+      out += x
+  out.toSeq
+```
+
+### Note
+- The mutable version is often the most readable and is perfectly acceptable in real Scala code when clarity or performance matters.
+
+### Additional attempt
+```scala
+def distinctPreserveOrder(xs: Seq[Int], Seq[Int]) =
+    var seen : Set[Int]()
+    var result : ArrayBuffer()
+    for (x <- xs)
+        if (!seen.contains(x))
+            seen += x
+            result.add(x)
+    result
+```
+
+### Feedback
+- Signature is invalid: `def distinctPreserveOrder(xs: Seq[Int], Seq[Int])` needs a name for the second parameter or should be removed.
+- `Set[Int]()` and `ArrayBuffer()` need types and imports; use mutable versions if you mutate.
+- Indentation: without braces, only the next line is controlled by the `if`. Your `result.add(x)` runs unconditionally.
+- Use `+=` for `ArrayBuffer` as well, or `out += x`; `add` isn’t standard.
+
+### Additional attempt
+```scala
+def distinctPreserveOrder(xs: Seq[Int]) : Seq[Int] =
+    var seen : Set[Int]()
+    var result : ArrayBuffer()
+    for (x <- xs)
+        if (!seen.contains(x))
+            seen += x
+            result.add(x)
+    result
+```
+
+### Feedback
+- `Set[Int]()` and `ArrayBuffer()` need types and imports; use mutable versions if you mutate.
+- Indentation: only the next line is under the `if`; `result.add(x)` is still unconditionally executed.
+- Use `+=` on `ArrayBuffer` (`result += x`), not `add`.
 
 ## Functional patterns
 - Parse `String` to `Int` returning `Option[Int]`.

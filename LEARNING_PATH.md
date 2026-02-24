@@ -41,3 +41,4 @@ This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, 
 ## Constraints
 - No starter files; begin from scratch with small, self‑contained snippets.
 - Prefer indentation‑style Scala in examples, unless a team style guide says otherwise.
+- Be explicit about Scala 3 indentation markers (`then`/`do`) early to reduce syntax friction.
