@@ -20,6 +20,7 @@ This repo is for learning Scala as an experienced C/C++/C# developer. Agents sho
 - Keep explanations short; provide small, runnable examples.
 - When proposing a learning step, point to `LEARNING_PATH.md` or `EXERCISES.md`.
 - If adding new materials, update the relevant markdown file and keep sections tidy.
+- Assume the learner uses Vim and sbt unless told otherwise.
 
 ## Files to use
 - `LEARNING_PATH.md`: structured roadmap and milestones.

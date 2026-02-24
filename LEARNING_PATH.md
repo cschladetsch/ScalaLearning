@@ -33,6 +33,10 @@ This roadmap is tailored for experienced C/C++/C# developers. It aims for fast, 
 
 ## Suggested progression (job starts next week)
 1) Prioritize Milestones 1–3 this week, focusing on reading and understanding existing code.
-2) Do 3–5 exercises from `EXERCISES.md` per milestone, but bias toward code‑reading tasks.
-3) Skim Milestones 4–5 to recognize patterns in the codebase (traits, givens, Future, interop).
-4) Build a small project after Milestones 3 and 5 if time allows.
+2) Plan for up to ~2 hours per night; split time between reading and short exercises.
+3) Do 3–5 exercises from `EXERCISES.md` per milestone, but bias toward code‑reading tasks.
+4) Skim Milestones 4–5 to recognize patterns in the codebase (traits, givens, Future, interop).
+5) Build a small project after Milestones 3 and 5 if time allows.
+
+## Constraints
+- No starter files; begin from scratch with small, self‑contained snippets.

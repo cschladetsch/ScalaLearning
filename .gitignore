@@ -1,0 +1,15 @@
+# sbt / scala
+project/target/
+target/
+.scalafmt.conf
+.metals/
+.bsp/
+.bloop/
+.idea/
+.vscode/
+*.class
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
