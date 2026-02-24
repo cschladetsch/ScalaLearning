@@ -15,15 +15,14 @@ Short tasks designed to map to C/C++/C# experience while practicing idiomatic Sc
 
 ```mermaid
 flowchart TB
-  A[List<br/>immutable, linked]
-  B[Vector<br/>immutable, indexed]
-  C[Array<br/>mutable, fixed size]
-  D[ArrayBuffer<br/>mutable, growable]
-
-  A --- A1[prepend O(1)]
-  B --- B1[random access]
-  C --- C1[contiguous]
-  D --- D1[contiguous + resize]
+  A["List (immutable, linked)"];
+  B["Vector (immutable, indexed)"];
+  C["Array (mutable, fixed size)"];
+  D["ArrayBuffer (mutable, growable)"];
+  A --> A1["prepend O(1)"];
+  B --> B1["random access"];
+  C --> C1["contiguous"];
+  D --> D1["contiguous + resize"];
 ```
 
 ```mermaid
